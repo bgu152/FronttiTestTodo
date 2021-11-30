@@ -16,11 +16,15 @@ function App() {
     setTodo({...todo, [event.target.name]: event.target.value});
   } 
 
+  const clearTodo = (event) => {
+    setTodos([]);
+  }
+
   return (
     <div className="App">
       <input type="text" placeholder="Date" name="date" value={todo.date} onChange={inputChanged}/>
       <input type="text" placeholder="Description" name="desc" value={todo.desc} onChange={inputChanged}/>
-      <button onClick={addTodo}>Add</button>
+      <button onClick={addTodo}>Add</button> <button onClick={clearTodo}>Clear</button>
       <TodoTable todos={todos} />
     </div>
   );
